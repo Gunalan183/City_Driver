@@ -43,7 +43,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col overflow-hidden"
       aria-label="Hero section"
-      style={{ background: 'linear-gradient(135deg, #080f1e 0%, #0f1f3d 55%, #162850 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #060e1c 0%, #0c1a30 55%, #112244 100%)' }}
     >
       {/* ── Decorative blobs ── */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -218,7 +218,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.7 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.1, type: 'spring', stiffness: 200 }}
-              className="absolute top-6 left-4 sm:left-0 lg:-left-6 bg-[#25D366] text-white rounded-2xl px-4 py-3 shadow-xl z-20 cursor-pointer"
+              className="hidden sm:block absolute top-6 left-0 lg:-left-6 bg-[#25D366] text-white rounded-2xl px-4 py-3 shadow-xl z-20 cursor-pointer"
               onClick={() => openWhatsApp(waMessages.general())}
               role="button"
               aria-label="Book via WhatsApp"
@@ -234,7 +234,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.7 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.3, type: 'spring', stiffness: 200 }}
-              className="absolute bottom-8 right-2 sm:right-0 lg:-right-4 bg-white/10 border border-white/20 backdrop-blur-md text-white rounded-2xl px-4 py-3 shadow-xl z-20"
+              className="hidden sm:block absolute bottom-8 right-0 lg:-right-4 bg-white/10 border border-white/20 backdrop-blur-md text-white rounded-2xl px-4 py-3 shadow-xl z-20"
             >
               <p className="text-xs font-medium opacity-60 flex items-center gap-1">
                 <MapPin size={11} className="text-[#f97316]" /> Based in
