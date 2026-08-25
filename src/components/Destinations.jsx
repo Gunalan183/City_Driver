@@ -31,8 +31,7 @@ const destinations = [
     name: 'Kumbakonam',
     desc: 'City of temples, sacred tanks and traditional culture',
     distance: '~55 km',
-    image: null,
-    gradient: 'from-teal-700 to-emerald-600',
+    image: '/Places Images/Kumbakonam.jpg',
   },
   {
     name: 'Thanjavur',
