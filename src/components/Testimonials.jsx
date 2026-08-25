@@ -7,21 +7,21 @@ import { Star, Quote } from 'lucide-react'
  */
 const testimonials = [
   {
-    name: 'Customer Name',
+    name: 'Barani',
     location: 'Kollidam',
     rating: 5,
     review: 'Add your real customer review here. Share your experience with City Driver service.',
     placeholder: true,
   },
   {
-    name: 'Customer Name',
+    name: 'Gunalan',
     location: 'Chidambaram',
     rating: 5,
     review: 'Add your real customer review here. Share your experience with City Driver service.',
     placeholder: true,
   },
   {
-    name: 'Customer Name',
+    name: 'HariKrishnan',
     location: 'Pondicherry',
     rating: 5,
     review: 'Add your real customer review here. Share your experience with City Driver service.',
