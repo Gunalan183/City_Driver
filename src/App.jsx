@@ -19,7 +19,7 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="overflow-x-hidden">
         <Hero />
         <QuickBooking />
         <Vehicles />

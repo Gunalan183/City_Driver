@@ -148,7 +148,7 @@ export default function Vehicles() {
         aria-hidden="true"
       />
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-7xl mx-auto w-full">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -162,7 +162,7 @@ export default function Vehicles() {
             Our Fleet
             <Zap size={14} />
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white drop-shadow-lg">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg px-2 break-words">
             Choose Your{' '}
             <span
               style={{
@@ -174,23 +174,22 @@ export default function Vehicles() {
               Perfect Ride
             </span>
           </h2>
-          <p className="mt-4 text-slate-400 text-lg max-w-xl mx-auto">
+          <p className="mt-4 text-slate-400 text-base sm:text-lg max-w-xl mx-auto px-2">
             Premium vehicles with a futuristic touch for every journey.
           </p>
         </motion.div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 w-full">
           {vehicles.map((vehicle, i) => (
             <motion.div
               key={vehicle.id}
-              initial={{ opacity: 0, y: 60, rotateX: 15 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.12, ease: 'easeOut' }}
-              whileHover={{ y: -10, transition: { duration: 0.25 } }}
-              className="relative flex flex-col group"
-              style={{ perspective: '1000px' }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="relative flex flex-col group w-full"
             >
               {/* 3D Card shell */}
               <div
