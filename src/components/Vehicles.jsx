@@ -2,13 +2,18 @@ import { motion } from 'framer-motion'
 import { Users, Wind, Luggage, CheckCircle, MessageCircle } from 'lucide-react'
 import { openWhatsApp, waMessages } from '../utils/whatsapp'
 
+import car4 from '../assets/Car images/4 Seater Car.jpg'
+import car5 from '../assets/Car images/5 Seater Car.jpg'
+import car6 from '../assets/Car images/6 Seater Car.jpg'
+import car8 from '../assets/Car images/8 Seater Car.jpg'
+
 const vehicles = [
   {
     id: 1,
     seats: '4',
     label: '4 Seater',
     badge: 'Sedan',
-    color: 'from-blue-600 to-blue-800',
+    image: car4,
     features: [
       '4 Passengers',
       'Air Conditioned',
@@ -16,15 +21,13 @@ const vehicles = [
       'Suitable for Small Families & Couples',
       'Local & Outstation Trips',
     ],
-    // Placeholder SVG car image - replace with real photo
-    imgBg: '#1e3a5f',
   },
   {
     id: 2,
     seats: '5',
     label: '5 Seater',
     badge: 'SUV',
-    color: 'from-[#0f1f3d] to-[#162850]',
+    image: car5,
     features: [
       '5 Passengers',
       'Air Conditioned',
@@ -32,14 +35,13 @@ const vehicles = [
       'Spacious Luggage Area',
       'Local & Outstation Trips',
     ],
-    imgBg: '#0f1f3d',
   },
   {
     id: 3,
     seats: '6',
     label: '6 Seater',
     badge: 'MUV',
-    color: 'from-orange-600 to-orange-700',
+    image: car6,
     popular: true,
     features: [
       '6 Passengers',
@@ -48,14 +50,13 @@ const vehicles = [
       'Family Friendly',
       'Local & Outstation Trips',
     ],
-    imgBg: '#c2410c',
   },
   {
     id: 4,
     seats: '8',
     label: '8 Seater',
     badge: 'Tempo Traveller',
-    color: 'from-slate-700 to-slate-900',
+    image: car8,
     features: [
       '8 Passengers',
       'Air Conditioned',
@@ -63,45 +64,8 @@ const vehicles = [
       'Ideal for Groups & Families',
       'Long Distance Travel',
     ],
-    imgBg: '#334155',
   },
 ]
-
-function CarPlaceholder({ seats, bg }) {
-  return (
-    <div
-      className="w-full h-48 rounded-2xl flex items-center justify-center relative overflow-hidden"
-      style={{ background: bg }}
-      aria-hidden="true"
-    >
-      {/* Simple car SVG illustration */}
-      <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4/5 opacity-80">
-        {/* Car body */}
-        <rect x="20" y="40" width="160" height="35" rx="8" fill="white" fillOpacity="0.15" />
-        {/* Car roof */}
-        <path d="M55 40 C65 18 135 18 145 40" fill="white" fillOpacity="0.2" />
-        {/* Windshield */}
-        <path d="M60 40 C68 24 100 22 140 40" fill="white" fillOpacity="0.1" />
-        {/* Wheels */}
-        <circle cx="58" cy="75" r="14" fill="white" fillOpacity="0.25" />
-        <circle cx="58" cy="75" r="8" fill="white" fillOpacity="0.15" />
-        <circle cx="142" cy="75" r="14" fill="white" fillOpacity="0.25" />
-        <circle cx="142" cy="75" r="8" fill="white" fillOpacity="0.15" />
-        {/* Headlight */}
-        <rect x="170" y="50" width="10" height="6" rx="3" fill="#f97316" fillOpacity="0.8" />
-        {/* Taillight */}
-        <rect x="20" y="50" width="8" height="6" rx="3" fill="#ef4444" fillOpacity="0.7" />
-      </svg>
-      {/* Seat count overlay */}
-      <div className="absolute top-3 right-3 bg-[#f97316] text-white text-xs font-bold px-2 py-1 rounded-lg">
-        {seats} Seats
-      </div>
-      <p className="absolute bottom-2 left-0 right-0 text-center text-white/40 text-xs">
-        Replace with actual vehicle photo
-      </p>
-    </div>
-  )
-}
 
 export default function Vehicles() {
   return (
@@ -135,9 +99,20 @@ export default function Vehicles() {
                 </div>
               )}
 
-              {/* Car image placeholder */}
+              {/* Car image */}
               <div className="p-4">
-                <CarPlaceholder seats={vehicle.seats} bg={vehicle.imgBg} />
+                <div className="relative w-full h-48 rounded-2xl overflow-hidden">
+                  <img
+                    src={vehicle.image}
+                    alt={`${vehicle.label} — City Driver Kollidam`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" aria-hidden="true" />
+                  <span className="absolute top-3 right-3 bg-[#f97316] text-white text-xs font-bold px-2.5 py-1 rounded-lg shadow">
+                    {vehicle.seats} Seats
+                  </span>
+                </div>
               </div>
 
               {/* Card content */}
