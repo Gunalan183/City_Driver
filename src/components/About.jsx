@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Car, MapPin, Plane, Users, Camera, Star, MessageCircle } from 'lucide-react'
 import { openWhatsApp, waMessages } from '../utils/whatsapp'
+import carLogo from '../assets/car_logo.png'
 
 const highlights = [
   { icon: Car, label: '4 / 5 / 6 / 8 Seater Vehicles' },
@@ -25,35 +26,19 @@ export default function About() {
             className="relative"
           >
             {/* Main card */}
-            <div className="relative bg-[#0f1f3d] rounded-3xl overflow-hidden aspect-[4/3] flex items-center justify-center shadow-2xl">
-              {/* Pattern */}
-              <div className="absolute inset-0 opacity-10"
-                style={{
-                  backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-                  backgroundSize: '30px 30px'
-                }}
-                aria-hidden="true"
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white p-6 flex items-center justify-center">
+              <img
+                src={carLogo}
+                alt="City Driver Kollidam — Your Trusted Travel Partner"
+                className="w-full h-auto object-contain rounded-2xl"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#f97316]/20 to-transparent" aria-hidden="true" />
-              {/* Car SVG illustration */}
-              <svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4/5 relative z-10" aria-hidden="true">
-                <rect x="30" y="60" width="240" height="55" rx="12" fill="white" fillOpacity="0.12" />
-                <path d="M80 60 C95 28 205 28 220 60" fill="white" fillOpacity="0.15" />
-                <path d="M88 60 C100 34 200 34 212 60" fill="white" fillOpacity="0.08" />
-                <circle cx="85" cy="114" r="20" fill="white" fillOpacity="0.2" />
-                <circle cx="85" cy="114" r="11" fill="white" fillOpacity="0.15" />
-                <circle cx="215" cy="114" r="20" fill="white" fillOpacity="0.2" />
-                <circle cx="215" cy="114" r="11" fill="white" fillOpacity="0.15" />
-                <rect x="255" y="72" width="15" height="9" rx="4" fill="#f97316" fillOpacity="0.9" />
-                <rect x="30" y="72" width="12" height="9" rx="4" fill="#ef4444" fillOpacity="0.8" />
-              </svg>
-              <p className="absolute bottom-4 text-white/30 text-xs">Replace with your business photo</p>
             </div>
 
             {/* Floating badge */}
-            <div className="absolute -bottom-5 -right-5 bg-[#f97316] text-white rounded-2xl px-5 py-4 shadow-xl">
+            <div className="absolute -bottom-4 -right-4 bg-[#f97316] text-white rounded-2xl px-5 py-3 shadow-xl z-10">
               <p className="text-xs font-medium opacity-80">Serving</p>
-              <p className="text-lg font-extrabold">Kollidam</p>
+              <p className="text-base font-extrabold">Kollidam</p>
               <p className="text-xs font-medium opacity-80">& Beyond</p>
             </div>
           </motion.div>
