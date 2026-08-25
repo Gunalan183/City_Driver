@@ -49,8 +49,8 @@ export default function Navbar() {
       {/* ── Main bar ── */}
       <div className={`w-full max-w-6xl flex items-center justify-between gap-3 rounded-2xl px-3 sm:px-5 py-2.5 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0c1a30]/97 backdrop-blur-xl shadow-2xl border border-white/10'
-          : 'bg-[#0c1a30]/85 backdrop-blur-lg border border-white/8'
+          ? 'lg:bg-[#0c1a30]/95 lg:backdrop-blur-xl lg:shadow-xl lg:border lg:border-white/10'
+          : 'lg:bg-[#0c1a30]/60 lg:backdrop-blur-md lg:border lg:border-white/8'
       }`}>
 
         {/* LEFT — Logo */}
@@ -100,7 +100,11 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+            className={`lg:hidden p-2.5 rounded-xl text-white/80 hover:text-white transition-all duration-300 ${
+              scrolled
+                ? 'bg-[#0c1a30]/95 backdrop-blur-xl border border-white/12 shadow-lg'
+                : 'bg-[#0c1a30]/70 backdrop-blur-md border border-white/10'
+            }`}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
           >

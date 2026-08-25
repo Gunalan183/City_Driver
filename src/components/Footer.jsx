@@ -29,9 +29,9 @@ export default function Footer() {
   return (
     <footer className="bg-[#060e1c] text-white" aria-label="Site footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div>
             <Logo size="md" className="mb-4" />
             <p className="text-white/50 text-sm leading-relaxed mb-5">
               Comfortable and reliable car travel services from Kollidam for local and outstation journeys.
@@ -49,38 +49,29 @@ export default function Footer() {
             </button>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-5">Quick Links</h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <button
-                    onClick={() => handleNav(link.href)}
-                    className="text-white/50 hover:text-[#f97316] text-sm transition-colors"
-                  >
-                    {link.label}
-                  </button>
-                </li>
+          {/* Quick Links + Services — 3-column grid */}
+          <div className="lg:col-span-2">
+            <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-4">Quick Links &amp; Services</h3>
+            <div className="grid grid-cols-3 gap-x-4 gap-y-3">
+              {[
+                ...quickLinks.map((l) => ({
+                  label: l.label,
+                  onClick: () => handleNav(l.href),
+                })),
+                ...serviceLinks.map((s) => ({
+                  label: s,
+                  onClick: () => openWhatsApp(waMessages.service(s)),
+                })),
+              ].map((item) => (
+                <button
+                  key={item.label}
+                  onClick={item.onClick}
+                  className="text-white/50 hover:text-[#f97316] text-sm transition-colors text-left truncate"
+                >
+                  {item.label}
+                </button>
               ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-5">Services</h3>
-            <ul className="space-y-3">
-              {serviceLinks.map((s) => (
-                <li key={s}>
-                  <button
-                    onClick={() => openWhatsApp(waMessages.service(s))}
-                    className="text-white/50 hover:text-[#f97316] text-sm transition-colors text-left"
-                  >
-                    {s}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            </div>
           </div>
 
           {/* Contact */}

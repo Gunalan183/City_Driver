@@ -12,22 +12,22 @@ export default function MobileBottomBar() {
       role="complementary"
       aria-label="Mobile contact bar"
     >
-      <div className="flex">
+      <div className="flex gap-2 px-3 py-2">
         <a
           href={PHONE_RAW}
-          className="flex-1 flex flex-col items-center justify-center gap-1 py-3 bg-[#0f1f3d] text-white active:bg-[#162850] transition-colors"
+          className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-[#0f1f3d] text-white text-xs font-semibold active:opacity-80 transition-opacity"
           aria-label="Call City Driver"
         >
-          <Phone size={20} />
-          <span className="text-xs font-semibold">Call Now</span>
+          <Phone size={14} />
+          Call Now
         </a>
         <button
           onClick={() => openWhatsApp(waMessages.general())}
-          className="flex-1 flex flex-col items-center justify-center gap-1 py-3 bg-[#25D366] text-white active:bg-[#20bd5c] transition-colors"
+          className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-[#25D366] text-white text-xs font-semibold active:opacity-80 transition-opacity"
           aria-label="WhatsApp City Driver"
         >
-          <MessageCircle size={20} />
-          <span className="text-xs font-semibold">WhatsApp</span>
+          <MessageCircle size={14} />
+          WhatsApp
         </button>
       </div>
     </motion.div>

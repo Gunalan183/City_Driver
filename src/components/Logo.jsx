@@ -12,7 +12,7 @@ export default function Logo({ className = '', size = 'md' }) {
   return (
     <div className={`flex items-center ${className}`}>
       <img
-        src="/city_Driver_logo.png"
+        src="/Car_logo_final.jpeg"
         alt="City Driver Kollidam Logo"
         className={`${sizes[size]} w-auto object-contain rounded-xl`}
         loading="eager"

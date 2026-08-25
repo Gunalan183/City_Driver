@@ -59,9 +59,9 @@ export default function Testimonials() {
         >
           <span className="text-[#f97316] text-sm font-semibold uppercase tracking-widest">Reviews</span>
           <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-[#0f1f3d]">Customer Reviews</h2>
-          <p className="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
+          {/* <p className="mt-3 text-gray-500 text-lg max-w-xl mx-auto">
             These are placeholder cards. Replace with real customer reviews once collected.
-          </p>
+          </p> */}
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -95,9 +95,9 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <p className="text-center text-gray-400 text-sm mt-8">
+        {/* <p className="text-center text-gray-400 text-sm mt-8">
           Collect real reviews from your customers and replace the placeholder content above.
-        </p>
+        </p> */}
       </div>
     </section>
   )
