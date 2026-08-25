@@ -4,7 +4,7 @@ import { openWhatsApp, waMessages, PHONE_RAW, WA_PHONE } from '../utils/whatsapp
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0f1f3d]" aria-label="Contact section">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0c1a30]" aria-label="Contact section">
       <div className="max-w-7xl mx-auto">
         {/* CTA Header */}
         <motion.div

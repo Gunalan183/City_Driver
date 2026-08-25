@@ -14,7 +14,7 @@ export default function Logo({ className = '', size = 'md' }) {
       <img
         src="/city_Driver_logo.png"
         alt="City Driver Kollidam Logo"
-        className={`${sizes[size]} w-auto object-contain`}
+        className={`${sizes[size]} w-auto object-contain rounded-xl`}
         loading="eager"
       />
     </div>

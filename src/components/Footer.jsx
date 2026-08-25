@@ -27,7 +27,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#080f1e] text-white" aria-label="Site footer">
+    <footer className="bg-[#060e1c] text-white" aria-label="Site footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}

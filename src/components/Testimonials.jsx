@@ -10,24 +10,27 @@ const testimonials = [
     name: 'Barani',
     location: 'Kollidam',
     rating: 5,
-    review: 'Add your real customer review here. Share your experience with City Driver service.',
-    placeholder: true,
+    review:
+      'Very comfortable and smooth journey. The driver was friendly and reached on time. Good service and definitely recommended!',
+    placeholder: false,
   },
   {
     name: 'Gunalan',
     location: 'Chidambaram',
     rating: 5,
-    review: 'Add your real customer review here. Share your experience with City Driver service.',
-    placeholder: true,
+    review:
+      'Had a really good travel experience with City Driver. The car was clean and comfortable, and the service was excellent.',
+    placeholder: false,
   },
   {
     name: 'HariKrishnan',
     location: 'Pondicherry',
     rating: 5,
-    review: 'Add your real customer review here. Share your experience with City Driver service.',
-    placeholder: true,
+    review:
+      'Excellent service for our trip to Pondicherry. The journey was comfortable and the driver was very polite and professional.',
+    placeholder: false,
   },
-]
+];
 
 function StarRating({ count }) {
   return (

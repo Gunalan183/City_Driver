@@ -84,7 +84,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-8 rounded-2xl bg-[#0f1f3d] px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4"
+          className="mt-8 rounded-2xl bg-[#0c1a30] px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4"
         >
           <div className="text-center sm:text-left">
             <p className="text-white font-bold text-base">Need help choosing a service?</p>
