@@ -7,85 +7,92 @@ const destinations = [
     name: 'Chidambaram',
     desc: 'Famous Nataraja Temple and sacred pilgrim town',
     distance: '~25 km',
-    gradient: 'from-orange-800 to-amber-700',
+    image: '/Places Images/Chidambaram.jpg',
   },
   {
     name: 'Cuddalore',
     desc: 'Coastal city with beaches and historic attractions',
     distance: '~50 km',
-    gradient: 'from-blue-800 to-blue-600',
+    image: '/Places Images/Cuddalore.jpg',
   },
   {
     name: 'Pondicherry',
     desc: 'French colonial charm, beaches and spiritual retreats',
     distance: '~75 km',
-    gradient: 'from-pink-700 to-rose-600',
+    image: '/Places Images/Pondychery.jpg',
   },
   {
     name: 'Mayiladuthurai',
     desc: 'Temple town on the banks of River Cauvery',
     distance: '~30 km',
-    gradient: 'from-yellow-700 to-amber-600',
+    image: '/Places Images/Mayiladurai.jpg',
   },
   {
     name: 'Kumbakonam',
     desc: 'City of temples, sacred tanks and traditional culture',
     distance: '~55 km',
+    image: null,
     gradient: 'from-teal-700 to-emerald-600',
   },
   {
     name: 'Thanjavur',
     desc: 'Home of the magnificent Brihadeeswarar Temple',
     distance: '~80 km',
-    gradient: 'from-red-800 to-red-600',
+    image: '/Places Images/Thanjalore.jpg',
   },
   {
     name: 'Trichy',
     desc: 'Gateway city with the iconic Rock Fort Temple',
     distance: '~110 km',
-    gradient: 'from-purple-800 to-violet-600',
+    image: '/Places Images/Trichy.jpg',
   },
   {
     name: 'Chennai',
     desc: 'Capital city with airports, hospitals and business hubs',
     distance: '~250 km',
-    gradient: 'from-slate-700 to-slate-500',
+    image: '/Places Images/Chennai.jpg',
   },
   {
     name: 'Mahabalipuram',
     desc: 'UNESCO World Heritage shore temples and sculptures',
     distance: '~200 km',
-    gradient: 'from-sky-700 to-cyan-600',
+    image: '/Places Images/Mahaballipuram.jpg',
   },
   {
     name: 'Madurai',
     desc: 'Temple city — home of the magnificent Meenakshi Amman',
     distance: '~220 km',
-    gradient: 'from-orange-700 to-yellow-600',
+    image: '/Places Images/Madurai.jpg',
   },
   {
     name: 'Rameswaram',
     desc: 'Sacred pilgrimage island in the Gulf of Mannar',
     distance: '~300 km',
-    gradient: 'from-blue-900 to-indigo-700',
+    image: '/Places Images/Rameshwaram.jpg',
   },
   {
     name: 'Kanyakumari',
     desc: 'Southernmost tip where three oceans meet',
     distance: '~450 km',
-    gradient: 'from-cyan-800 to-teal-600',
+    image: '/Places Images/kanyakumari the beauty.jpg',
   },
   {
     name: 'Ooty',
     desc: 'Queen of hills — cool climate and scenic mountain beauty',
     distance: '~350 km',
-    gradient: 'from-green-800 to-emerald-700',
+    image: '/Places Images/ooty.jpg',
   },
   {
     name: 'Coimbatore',
     desc: 'Manchester of South India — industrial and trade hub',
     distance: '~320 km',
-    gradient: 'from-indigo-700 to-blue-600',
+    image: '/Places Images/Coimbatore.jpg',
+  },
+  {
+    name: 'Kanchipuram',
+    desc: 'City of thousand temples and famous silk sarees',
+    distance: '~230 km',
+    image: '/Places Images/Kanchipuram.jpg',
   },
 ]
 
@@ -95,34 +102,38 @@ function DestCard({ dest, index }) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
+      transition={{ duration: 0.5, delay: index * 0.04 }}
+      className="rounded-2xl overflow-hidden group shadow-md hover:shadow-xl transition-all duration-300 flex flex-col bg-white"
     >
-      {/* Gradient background (replace with real destination photo via CSS bg-image) */}
-      <div className={`h-44 bg-gradient-to-br ${dest.gradient} relative flex items-end`}>
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all duration-300" />
+      {/* Image area */}
+      <div className="relative h-44 overflow-hidden">
+        {dest.image ? (
+          <img
+            src={dest.image}
+            alt={`${dest.name} — travel destination from Kollidam`}
+            loading="lazy"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          <div className={`w-full h-full bg-gradient-to-br ${dest.gradient}`} aria-label={dest.name} />
+        )}
+
+        {/* Dark overlay for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" aria-hidden="true" />
+
         {/* Distance badge */}
-        <span className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full border border-white/30">
+        <span className="absolute top-3 right-3 bg-black/40 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-full border border-white/20">
           {dest.distance}
         </span>
-        {/* Pattern overlay (placeholder for real image) */}
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-          backgroundSize: '20px 20px'
-        }} aria-hidden="true" />
-        <div className="relative z-10 p-4 w-full">
-          <p className="text-xs text-white/60 mb-0.5">Replace with destination photo</p>
-        </div>
       </div>
 
       {/* Card body */}
-      <div className="bg-white p-4">
+      <div className="p-4 flex flex-col flex-1">
         <div className="flex items-start gap-2 mb-1">
           <MapPin size={14} className="text-[#f97316] mt-0.5 flex-shrink-0" />
           <h3 className="font-bold text-[#0f1f3d] text-base leading-tight">{dest.name}</h3>
         </div>
-        <p className="text-gray-500 text-xs mb-3 leading-relaxed pl-5">{dest.desc}</p>
+        <p className="text-gray-500 text-xs mb-4 leading-relaxed pl-5 flex-1">{dest.desc}</p>
         <button
           onClick={() => openWhatsApp(waMessages.destination(dest.name))}
           className="w-full flex items-center justify-center gap-2 bg-[#f97316] hover:bg-[#ea6c0a] text-white text-xs font-bold py-2.5 rounded-xl transition-all duration-200"
