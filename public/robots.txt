@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://citydriverkollidam.in/sitemap.xml
+Sitemap: https://city-driver-kollidam.vercel.app/sitemap.xml
