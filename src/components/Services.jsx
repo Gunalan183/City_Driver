@@ -76,6 +76,34 @@ export default function Services() {
               </motion.button>
             )
           })}
+
+          {/* Harvester Machine — image-based card */}
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: services.length * 0.05 }}
+            whileHover={{ y: -3, boxShadow: '0 10px 28px rgba(15,31,61,0.09)' }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => openWhatsApp(waMessages.service('Harvester Machine'))}
+            className="group flex flex-col items-center text-center gap-2.5 bg-white border border-gray-100 hover:border-[#f97316]/30 rounded-2xl p-4 sm:p-5 shadow-sm transition-all duration-200"
+            aria-label="Enquire about Harvester Machine"
+          >
+            <div className="w-11 h-11 sm:w-12 sm:h-12 bg-green-50 rounded-xl overflow-hidden flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+              <img
+                src="/Harvester_Machine.png"
+                alt="Harvester Machine"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <p className="text-[#0f1f3d] font-semibold text-xs sm:text-sm leading-snug group-hover:text-[#f97316] transition-colors">
+              Harvester Machine
+            </p>
+            <span className="flex items-center gap-1 text-[#25D366] text-[10px] sm:text-xs font-semibold">
+              <MessageCircle size={10} /> Enquire
+            </span>
+          </motion.button>
         </div>
 
         {/* Bottom CTA strip */}

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Users, Wind, Luggage, CheckCircle, MessageCircle, Zap } from 'lucide-react'
+import { Users, Wind, Luggage, CheckCircle, MessageCircle, Zap, ExternalLink } from 'lucide-react'
 import { openWhatsApp, waMessages } from '../utils/whatsapp'
 
 import car4 from '../assets/Car images/4 Seater Car.jpg'
@@ -94,6 +94,25 @@ const vehicles = [
       'Long Distance Travel',
     ],
   },
+  {
+    id: 6,
+    seats: '1',
+    customBadge: 'Heavy Duty',
+    label: 'Harvester Machine',
+    badge: 'Farming',
+    image: '/Harvester_Machine.png',
+    ac: false,
+    isFarming: true,
+    websiteLink: 'https://kas-harvesters.vercel.app/',
+    glowColor: '#eab308',
+    glowColorRgb: '234, 179, 8',
+    features: [
+      'Efficient Crop Harvesting',
+      'Skilled Operator Provided',
+      'Saves Time & Labor Costs',
+      'Available for Farm Booking',
+    ],
+  },
 ]
 
 /* Inline SVG 3D car silhouette used as a decorative overlay */
@@ -180,7 +199,7 @@ export default function Vehicles() {
         </motion.div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">
           {vehicles.map((vehicle, i) => (
             <motion.div
               key={vehicle.id}
@@ -259,7 +278,7 @@ export default function Vehicles() {
                         border: `1px solid rgba(${vehicle.glowColorRgb}, 0.5)`,
                       }}
                     >
-                      {vehicle.seats} Seats
+                      {vehicle.customBadge || `${vehicle.seats} Seats`}
                     </span>
 
                     {/* 3D bottom platform shadow strip */}
@@ -327,9 +346,9 @@ export default function Vehicles() {
                   {/* Icon pills */}
                   <div className="flex gap-2 mb-4 flex-wrap">
                     {[
-                      { icon: <Users size={11} />, label: `${vehicle.seats} Seats` },
+                      { icon: <Users size={11} />, label: vehicle.customBadge || `${vehicle.seats} Seats` },
                       ...(vehicle.ac ? [{ icon: <Wind size={11} />, label: 'AC' }] : []),
-                      { icon: <Luggage size={11} />, label: 'Luggage' },
+                      ...(vehicle.isFarming ? [] : [{ icon: <Luggage size={11} />, label: 'Luggage' }]),
                     ].map(({ icon, label }) => (
                       <div
                         key={label}
@@ -346,22 +365,43 @@ export default function Vehicles() {
                     ))}
                   </div>
 
-                  {/* CTA button */}
-                  <motion.button
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.96 }}
-                    onClick={() => openWhatsApp(waMessages.vehicle(vehicle.seats))}
-                    className="w-full flex items-center justify-center gap-2 text-white font-semibold py-2.5 rounded-xl text-sm transition-all duration-200"
-                    style={{
-                      background: 'linear-gradient(135deg, #25D366, #128C7E)',
-                      boxShadow: '0 0 18px rgba(37,211,102,0.35)',
-                      border: '1px solid rgba(37,211,102,0.4)',
-                    }}
-                    aria-label={`Enquire about ${vehicle.label} on WhatsApp`}
-                  >
-                    <MessageCircle size={15} />
-                    Enquire on WhatsApp
-                  </motion.button>
+                  {/* CTA buttons */}
+                  <div className="flex flex-col gap-2 mt-auto">
+                    <motion.button
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.96 }}
+                      onClick={() => openWhatsApp(vehicle.isFarming ? waMessages.service(vehicle.label) : waMessages.vehicle(vehicle.seats))}
+                      className="w-full flex items-center justify-center gap-2 text-white font-semibold py-2.5 rounded-xl text-sm transition-all duration-200"
+                      style={{
+                        background: 'linear-gradient(135deg, #25D366, #128C7E)',
+                        boxShadow: '0 0 18px rgba(37,211,102,0.35)',
+                        border: '1px solid rgba(37,211,102,0.4)',
+                      }}
+                      aria-label={`Enquire about ${vehicle.label} on WhatsApp`}
+                    >
+                      <MessageCircle size={15} />
+                      Enquire on WhatsApp
+                    </motion.button>
+
+                    {vehicle.websiteLink && (
+                      <motion.a
+                        href={vehicle.websiteLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        whileHover={{ scale: 1.04 }}
+                        whileTap={{ scale: 0.96 }}
+                        className="w-full flex items-center justify-center gap-2 text-white font-semibold py-2.5 rounded-xl text-sm transition-all duration-200"
+                        style={{
+                          background: `linear-gradient(135deg, ${vehicle.glowColor}, ${vehicle.glowColor}99)`,
+                          boxShadow: `0 0 18px rgba(${vehicle.glowColorRgb},0.35)`,
+                          border: `1px solid rgba(${vehicle.glowColorRgb},0.4)`,
+                        }}
+                      >
+                        <ExternalLink size={15} />
+                        Visit Website
+                      </motion.a>
+                    )}
+                  </div>
                 </div>
 
                 {/* Bottom neon edge */}
